@@ -27,7 +27,8 @@ The **Reddit-to-Delta-Live** project ingests data from Reddit in near real-time 
 - **Azure Databricks**: For managing and running Spark-based workflows in the cloud.
 - **PySpark**: For distributed data processing and transformation.
 
-![Screenshot 2024-12-13 173557](https://github.com/user-attachments/assets/a3e72dc5-4d74-4a45-a892-514f57077959)
+![WhatsApp Image 2024-12-21 at 19 51 03_b606a2c6](https://github.com/user-attachments/assets/2aed2924-5c44-4310-9f3e-93389d70d356)
+
 
 
 

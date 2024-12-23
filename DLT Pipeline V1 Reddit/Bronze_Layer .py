@@ -54,8 +54,12 @@ schema = StructType([
     StructField("url", StringType(), True)
 ])
 
-# Create DataFrame
+
+# Create DataFrame from raw data
 df = spark.createDataFrame(raw_data, schema=schema)
+
+# Create or replace the temporary view with the DataFrame
+df.createOrReplaceTempView("bronze_reddit_posts_temp")
 
 import dlt
 # Use DLT to create a Delta Live Table

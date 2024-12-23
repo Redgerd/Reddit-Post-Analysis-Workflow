@@ -57,11 +57,12 @@ schema = StructType([
 # Create DataFrame
 df = spark.createDataFrame(raw_data, schema=schema)
 
-# Define path for the bronze layer folder in DBFS (Databricks File System)
-bronze_layer_path = "dbfs:/mnt/big_data_analytics_v/big_data_analytics_sesssion_v/volume_reddit/bronze_reddit_posts"
-
-# Save the DataFrame as Delta format in the bronze layer folder
-df.write.format("delta").mode("overwrite").save(bronze_layer_path)
-
-# COMMAND ----------
-
+import dlt
+# Use DLT to create a Delta Live Table
+@dlt.table(
+    comment="This table contains raw Reddit posts fetched from the Pakistan subreddit",
+    table_properties={"quality": "bronze"}
+)
+def bronze_reddit_posts():
+    # Returning the DataFrame to be stored in the Delta Live Table
+    return df
